@@ -13,35 +13,42 @@ public class CommandBase {
 	public String access;
 	public Server server;
 	public Permissions permissions;
-	private String prefix;
 	private static String label;
 
 	public String R = "§c", DR = "§4", O = "§6", G = "§a", DG = "§2", W = "§f", GY = "§7", D_GY = "§8", D_B = "§1", B = "§b", I = "§9", Y = "§e", P = "§d";
 
 	public CommandBase(Player player, String[] args) {
-		access = DR + "You don't have permission to do " + DARK_GREEN + "/" + getLabel();
 		String[] groups = PermissionsEx.getUser(player).getGroupsNames();
-		prefix = groups[0];
-		server = player.getServer();
-		permissions = new Permissions();
+		String prefix = groups[0];
 		format = prefix + " " + ChatColor.GREEN + player.getName() + ChatColor.WHITE;
+		access = DR + "You don't have permission to do " + DARK_GREEN + "/" + getLabel();
+		permissions = new Permissions();
+		server = player.getServer();
 
-		if (prefix.equalsIgnoreCase("User")) {
-			power = 0;
-		} else if (prefix.equalsIgnoreCase("Moderator")) {
-			power = 1;
-		} else if (prefix.equalsIgnoreCase("Admin")) {
-			power = 2;
-		} else if (prefix.equalsIgnoreCase("Superadmin")) {
-			power = 3;
-		} else if (prefix.equalsIgnoreCase("sectionleader")) {
-			power = 4;
-		} else if (prefix.equalsIgnoreCase("owner")) {
-			power = 5;
-		}
+	}
+
+	public int getPower(Player player) {
+		String[] groups = PermissionsEx.getUser(player).getGroupsNames();
+		String prefix = groups[0];
 
 		if (player.getName().equalsIgnoreCase("TheOnly1ne")) {
-			power = 10;
+			return 10;
+		}
+
+		if (prefix.equalsIgnoreCase("User")) {
+			return 0;
+		} else if (prefix.equalsIgnoreCase("Moderator")) {
+			return 1;
+		} else if (prefix.equalsIgnoreCase("Admin")) {
+			return 2;
+		} else if (prefix.equalsIgnoreCase("Superadmin")) {
+			return 3;
+		} else if (prefix.equalsIgnoreCase("sectionleader")) {
+			return 4;
+		} else if (prefix.equalsIgnoreCase("owner")) {
+			return 5;
+		} else {
+			return 0;
 		}
 	}
 

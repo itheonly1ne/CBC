@@ -42,6 +42,7 @@ public class CasualBananas extends JavaPlugin {
 	public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
 		Player player = (Player) sender;
 
+		CommandBase.setLabel(label.toLowerCase());
 		new CommandBase(player, args);
 
 		if (label.equalsIgnoreCase("announce")) {

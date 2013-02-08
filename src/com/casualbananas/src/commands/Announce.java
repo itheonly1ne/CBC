@@ -18,7 +18,7 @@ public class Announce extends CommandBase {
 				}
 
 				if (msg.equals(null) || msg.equalsIgnoreCase("null")) {
-
+					return;
 				} else {
 					server.broadcastMessage("(ANNOUNCEMENT) " + format + ": " + msg);
 				}

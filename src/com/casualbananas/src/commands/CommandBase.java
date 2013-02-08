@@ -16,7 +16,7 @@ public class CommandBase {
 	private String prefix;
 	private static String label;
 
-	public String R = "§c", DR = "§4", O = "§6", G = "§a", DG = "2", W = "§f", GY = "§7", D_GY = "§8", D_B = "§1", B = "§b", I = "§9", Y = "§e", P = "§d";
+	public String R = "§c", DR = "§4", O = "§6", G = "§a", DG = "§2", W = "§f", GY = "§7", D_GY = "§8", D_B = "§1", B = "§b", I = "§9", Y = "§e", P = "§d";
 
 	public CommandBase(Player player, String[] args) {
 		access = DR + "You don't have permission to do " + DARK_GREEN + "/" + getLabel();
